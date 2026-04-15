@@ -19,6 +19,8 @@
 4. Test your new endpoints in the API client app.
 
 ## Dari Monica mengenai tugas Take Home Quiz
+Sebelumnya, saya udah bikin akun(create user) sebanyak 3 akun dengan total gacha masih 0, tapi jika ingin di tes buat akun lagi dan ketentuan cara kerja system gacha ini, bisa liat ketentuan berikut:
+
 1. buat akun terlebih dahulu dengan "POST : localhost:5000/api/users"
 {
       "email": "isi",
