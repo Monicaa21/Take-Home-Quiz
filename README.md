@@ -19,14 +19,67 @@
 4. Test your new endpoints in the API client app.
 
 ## Dari Monica mengenai tugas Take Home Quiz
-Sebelumnya, saya udah bikin akun(create user) sebanyak 3 akun dengan total gacha masih 0, tapi jika ingin di tes buat akun lagi dan ketentuan cara kerja system gacha ini, bisa liat ketentuan berikut:
 
-1. buat akun terlebih dahulu dengan "POST : localhost:5000/api/users"
+Endpoint yang saya buat di tugas ini(diluar endpoint user dari Bapak Janson):
+POST prizes
+GET prizes
+GET prizes/available
+GET prizes/remaining
+
+POST gacha/roll
+GET gacha/history/:name
+GET gacha/winners
+
+Sebelumnya, saya menggunakan mongodb compass(bukan atlas), jadi perlu untuk membuat akun dan mengupload list prize nya di echo api dan terupload ke mongodb compass. Cara kerja endpoint dapat dilihat sebagai berikut:
+
+1. Buat akun dengan "POST : localhost:5000/api/users"
 {
-      "email": "isi",
-      "password": "isi (minimal 8 karakter)",
-      "full_name": "isi",
-      "confirm_password": "isi sama dengan password"
+    "email": "isi",
+    "password": "isi (minimal 8 karakter)",
+    "full_name": "isi",
+    "confirm_password": "isi sama dengan password"
 }
-2. Akses "GET : localhost:5000/api/prizes" untuk melihat detail hadiahnya
-3. 
+
+2. Buat list prize dengan "POST : localhost:5000/api/prizes"
+{
+    "name": "Emas 10 gram",
+    "kuota": 1,
+    "probability": 1
+}
+upload pertama
+
+{
+    "name": "Smartphone X",
+    "kuota": 5,
+    "probability": 5
+}
+upload kedua
+
+{
+    "name": "Smartphone Y",
+    "kuota": 10,
+    "probability": 10
+}
+upload ketiga
+
+{
+    "name": "Voucher Rp100.000",
+    "kuota": 100,
+    "probability": 30
+}
+upload keempat
+
+{
+    "name": "Pulsa 50.000",
+    "kuota": 500,
+    "probability": 54
+}
+upload kelima
+
+3. Akses "GET : localhost:5000/api/prizes" untuk melihat list prize yang dibuat pada step 2
+
+4. Jika sudah membuat akun dan list prize(hadiah)nya, user dapat mengakses endpoint "POST : localhost:5000/api/gacha/roll" untuk mulai gacha
+Isi body dengan 'name' yang sama dengan akun yang dibuat tadi
+{
+    "name": "isi dengan full_name yang tadi dibuat"
+}
