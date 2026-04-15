@@ -30,9 +30,11 @@ POST gacha/roll
 GET gacha/history/:name
 GET gacha/winners
 
-Sebelumnya, saya menggunakan mongodb compass(bukan atlas), jadi perlu untuk membuat akun dan mengupload list prize nya di echo api dan terupload ke mongodb compass. Cara kerja endpoint dapat dilihat sebagai berikut:
+Sebelumnya, saya menggunakan mongodb compass(bukan atlas), jadi perlu untuk membuat akun dan mengupload list prize nya di echo api dan akan terupload ke mongodb compass secara lokal. Sistem gacha ini adalah user harus membuat akun, kemudian user dapat gacha hadiah dengan menginput nama mereka sebagai daftar untuk menggacha. Lalu ketika ingin melihat data pemenang setelah gacha dapat dilakukan dan terdapat sensor nama(tidak secara keseluruhan).
 
-1. Buat akun dengan "POST : localhost:5000/api/users"
+## Cara kerja endpoint dapat dilihat sebagai berikut:
+
+1. Buat akun dengan "POST : localhost:5000/api/users" di echo API, lalu isi body:
 {
     "email": "isi",
     "password": "isi (minimal 8 karakter)",
@@ -40,7 +42,9 @@ Sebelumnya, saya menggunakan mongodb compass(bukan atlas), jadi perlu untuk memb
     "confirm_password": "isi sama dengan password"
 }
 
-2. Buat list prize dengan "POST : localhost:5000/api/prizes"
+2. Lihat data user dengan "GET : localhost:5000/api/users" di echo API
+
+3. Buat list prize dengan "POST : localhost:5000/api/prizes" dan isi body:
 {
     "name": "Emas 10 gram",
     "kuota": 1,
@@ -76,10 +80,12 @@ upload keempat
 }
 upload kelima
 
-3. Akses "GET : localhost:5000/api/prizes" untuk melihat list prize yang dibuat pada step 2
+4. Akses "GET : localhost:5000/api/prizes" untuk melihat list prize yang dibuat pada step 2
 
-4. Jika sudah membuat akun dan list prize(hadiah)nya, user dapat mengakses endpoint "POST : localhost:5000/api/gacha/roll" untuk mulai gacha
-Isi body dengan 'name' yang sama dengan akun yang dibuat tadi
+5. Jika sudah membuat akun dan list prize(hadiah)nya, user dapat mengakses endpoint "POST : localhost:5000/api/gacha/roll" untuk mulai gacha
+Isi body dengan 'name' yang sama dengan akun yang dibuat tadi. Isi body:
 {
     "name": "isi dengan full_name yang tadi dibuat"
 }
+
+6. 
