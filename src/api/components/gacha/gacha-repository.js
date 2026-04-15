@@ -14,6 +14,12 @@ async function countTodayByUser(userId, start, end) {
   });
 }
 
+async function findByUser(userId) {
+  return Gacha.find({ userId })
+    .populate('userId', 'name')
+    .populate('prizeId', 'name');
+}
+
 async function findAll() {
   return Gacha.find().populate('userId', 'name').populate('prizeId', 'name');
 }
@@ -27,6 +33,7 @@ async function findWinners() {
 module.exports = {
   create,
   countTodayByUser,
+  findByUser,
   findAll,
   findWinners,
 };

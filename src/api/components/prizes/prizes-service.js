@@ -9,8 +9,8 @@ async function getAvailablePrizes() {
 }
 
 async function createPrize(data) {
-  if (!data.name || !data.quota) {
-    throw new Error('Name dan quota wajib diisi');
+  if (!data.name || typeof data.kuota !== 'number' || data.kuota <= 0) {
+    throw new Error('Name dan kuota harus valid');
   }
 
   return prizesRepository.create({
@@ -19,12 +19,12 @@ async function createPrize(data) {
   });
 }
 
-async function getRemainingQuota() {
+async function getRemainingKuota() {
   const prizes = await prizesRepository.findAll();
 
   return prizes.map((p) => ({
     name: p.name,
-    remaining: p.quota - p.claimed,
+    remaining: Math.max(0, p.kuota - p.claimed),
   }));
 }
 
@@ -32,5 +32,5 @@ module.exports = {
   getAllPrizes,
   getAvailablePrizes,
   createPrize,
-  getRemainingQuota,
+  getRemainingKuota,
 };

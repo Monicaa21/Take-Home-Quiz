@@ -1,7 +1,17 @@
+const usersRepository = require('../users/users-repository');
 const gachaRepository = require('./gacha-repository');
 const prizesRepository = require('../prizes/prizes-repository');
 
-async function roll(userId) {
+async function roll(name) {
+  const user = await usersRepository.getUserByName(name);
+
+  if (!user) {
+    throw new Error('User not found :(');
+  }
+
+  // eslint-disable-next-line no-underscore-dangle
+  const userId = user._id;
+
   const now = new Date();
 
   const start = new Date(now);
@@ -31,8 +41,9 @@ async function roll(userId) {
       if (random <= cumulative) {
         selectedPrize = prize;
         isWin = true;
-        // eslint-disable-next-line no-await-in-loop
-        await prizesRepository.updateClaimed(prize);
+
+        // eslint-disable-next-line no-underscore-dangle
+        prizesRepository.updateClaimed(prize._id);
         break;
       }
     }
@@ -46,14 +57,21 @@ async function roll(userId) {
   });
 
   return {
-    message: isWin ? 'Selamat, kamu mendapatkan hasiah!' : 'Yah, coba lagi',
+    message: isWin
+      ? 'Selamat, kamu mendapatkan hadiah!'
+      : 'Yah belum dapat, coba lagi',
     prize: selectedPrize ? selectedPrize.name : null,
     data: result,
   };
 }
 
-async function getHistory() {
-  return gachaRepository.findAll();
+async function getHistory(name) {
+  const user = await usersRepository.getUserByName(name);
+
+  if (!user) throw new Error('USER_NOT_FOUND');
+
+  // eslint-disable-next-line no-underscore-dangle
+  return gachaRepository.findByUser(user._id);
 }
 
 async function getWinners() {

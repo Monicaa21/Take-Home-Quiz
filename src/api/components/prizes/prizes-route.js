@@ -11,7 +11,7 @@ module.exports = (app) => {
 
   route.get('/available', prizesController.getAvailablePrizes);
 
-  route.get('/remaining', prizesController.getRemainingQuota);
+  route.get('/remaining', prizesController.getRemainingKuota);
 
   route.post('/', prizesController.createPrize);
 };

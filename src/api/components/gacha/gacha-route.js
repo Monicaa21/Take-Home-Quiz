@@ -8,6 +8,6 @@ module.exports = (app) => {
   app.use('/gacha', route);
 
   route.post('/roll', gachaController.doGacha);
-  route.get('/history', gachaController.getHistory);
+  route.get('/history/:name', gachaController.getHistory);
   route.get('/winners', gachaController.getWinners);
 };

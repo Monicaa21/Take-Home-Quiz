@@ -1,9 +1,10 @@
 module.exports = (db) =>
   db.model(
-    'Users',
+    'Prize',
     db.Schema({
       name: String,
-      email: String,
-      password: String,
+      kuota: Number,
+      claimed: Number,
+      probability: Number,
     })
   );
