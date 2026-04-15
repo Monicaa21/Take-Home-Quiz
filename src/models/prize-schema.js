@@ -1,15 +1,18 @@
 module.exports = (db) =>
   db.model(
-    'User',
+    'Prize',
     db.Schema({
       name: {
         type: String,
         required: true,
       },
-      email: {
-        type: String,
+      quota: {
+        type: Number,
         required: true,
-        unique: true,
+      },
+      claimed: {
+        type: Number,
+        default: 0,
       },
     })
   );
