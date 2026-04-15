@@ -19,3 +19,11 @@
 4. Test your new endpoints in the API client app.
 
 ## Dari Monica mengenai tugas Take Home Quiz
+1. buat akun terlebih dahulu dengan "POST : localhost:5000/api/users"
+{
+      "email": "isi",
+      "password": "isi (minimal 8 karakter)",
+      "full_name": "isi",
+      "confirm_password": "isi sama dengan password"
+}
+2. Akses "GET : localhost:5000/api/prizes" untuk melihat detail hadiah
