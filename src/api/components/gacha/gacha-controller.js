@@ -10,12 +10,13 @@ async function doGacha(request, response, next) {
   } catch (error) {
     if (error.message === 'User not found :(') {
       return response.status(404).json({
-        message: 'Maaf, nama belum terdaftar',
+        message: 'Maaf, nama belum terdaftar. Daftar dulu yaa',
       });
     }
     if (error.message === 'Batas gacha harian sudah habis (5x)') {
       return response.status(429).json({
-        message: 'Anda mencapai batas maksimal gacha hari ini (5x).',
+        message:
+          'Anda mencapai batas maksimal gacha hari ini (5x). Coba besok lagi yaa',
       });
     }
     return next(error);
@@ -24,7 +25,7 @@ async function doGacha(request, response, next) {
 
 async function getHistory(request, response, next) {
   try {
-    const { name } = request.body;
+    const { name } = request.params;
 
     const history = await gachaService.getHistory(name);
 

@@ -25,9 +25,7 @@ async function findAll() {
 }
 
 async function findWinners() {
-  return Gacha.find({ isWin: true })
-    .populate('userId', 'name')
-    .populate('prizeId', 'name');
+  return Gacha.find({ isWin: true }).populate('userId').populate('prizeId');
 }
 
 module.exports = {

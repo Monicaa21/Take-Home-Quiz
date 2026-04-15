@@ -5,21 +5,12 @@ module.exports = (db) =>
       {
         userId: {
           type: db.Schema.Types.ObjectId,
-          ref: 'User',
+          ref: 'Users',
           required: true,
         },
-        prizeId: {
-          type: db.Schema.Types.ObjectId,
-          ref: 'Prize',
-          default: null,
-        },
-        isWin: {
-          type: Boolean,
-          default: false,
-        },
+        prizeId: { type: db.Schema.Types.ObjectId, ref: 'Prize' },
+        isWin: { type: Boolean, default: false },
       },
-      {
-        timestamps: true,
-      }
+      { timestamps: true }
     )
   );

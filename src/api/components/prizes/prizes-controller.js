@@ -29,7 +29,7 @@ async function createPrize(request, response, next) {
 
 async function getRemainingKuota(request, response, next) {
   try {
-    const prizes = await prizesService.getRemainingQuota();
+    const prizes = await prizesService.getRemainingKuota();
     return response.status(200).json(prizes);
   } catch (error) {
     return next(error);

@@ -26,4 +26,5 @@
       "full_name": "isi",
       "confirm_password": "isi sama dengan password"
 }
-2. Akses "GET : localhost:5000/api/prizes" untuk melihat detail hadiah
+2. Akses "GET : localhost:5000/api/prizes" untuk melihat detail hadiahnya
+3. 

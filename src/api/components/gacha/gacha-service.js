@@ -13,10 +13,8 @@ async function roll(name) {
   const userId = user._id;
 
   const now = new Date();
-
   const start = new Date(now);
   start.setHours(0, 0, 0, 0);
-
   const end = new Date(now);
   end.setHours(23, 59, 59, 999);
 
@@ -74,12 +72,40 @@ async function getHistory(name) {
   return gachaRepository.findByUser(user._id);
 }
 
+async function maskName(name) {
+  return name
+    .split(' ')
+    .map((word) => {
+      // eslint-disable-next-line
+      if (word.length <= 2) return word[0] + '*';
+
+      const first = word[0];
+      const last = word[word.length - 1];
+      const middle = '*'.repeat(word.length - 2);
+
+      return first + middle + last;
+    })
+    .join(' ');
+}
+
 async function getWinners() {
-  return gachaRepository.findWinners();
+  const winners = await gachaRepository.findWinners();
+
+  return Promise.all(
+    winners.map(async (w) => {
+      const name = w.userId?.name || 'Anonymous';
+
+      return {
+        user: await maskName(name),
+        prize: w.prizeId?.name || null,
+      };
+    })
+  );
 }
 
 module.exports = {
   roll,
   getHistory,
+  maskName,
   getWinners,
 };
