@@ -21,8 +21,9 @@
 ## Dari Monica mengenai tugas Take Home Quiz
 Endpoint yang saya buat di tugas ini(diluar endpoint user dari Bapak Janson):
 POST prizes
+
 GET prizes
-GET prizes/available
+
 GET prizes/remaining
 
 POST gacha/roll
