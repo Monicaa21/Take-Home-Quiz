@@ -1,11 +1,5 @@
 const { Prize } = require('../../../models');
 
-async function findAvailable() {
-  return Prize.find({
-    $expr: { $lt: ['$claimed', '$kuota'] },
-  });
-}
-
 async function create(data) {
   return Prize.create(data);
 }
@@ -19,7 +13,6 @@ async function findAll() {
 }
 
 module.exports = {
-  findAvailable,
   create,
   updateClaimed,
   findAll,

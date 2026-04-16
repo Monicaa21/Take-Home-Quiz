@@ -19,7 +19,6 @@
 4. Test your new endpoints in the API client app.
 
 ## Dari Monica mengenai tugas Take Home Quiz
-
 Endpoint yang saya buat di tugas ini(diluar endpoint user dari Bapak Janson):
 POST prizes
 GET prizes
@@ -30,11 +29,12 @@ POST gacha/roll
 GET gacha/history/:name
 GET gacha/winners
 
-Sebelumnya, saya menggunakan mongodb compass(bukan atlas), jadi perlu untuk membuat akun dan mengupload list prize nya di echo api dan akan terupload ke mongodb compass secara lokal. Sistem gacha ini adalah user harus membuat akun, kemudian user dapat gacha hadiah dengan menginput nama mereka sebagai daftar untuk menggacha. Lalu ketika ingin melihat data pemenang setelah gacha dapat dilakukan dan terdapat sensor nama(tidak secara keseluruhan).
-
 ## Cara kerja endpoint dapat dilihat sebagai berikut:
+Sebelumnya, saya menggunakan database mongodb compass(bukan atlas), jadi saya membuat src/seeders/seeder.js untuk membuat database bisa langsung connect ke local mongodb dari laptop/komputer manapun.
 
-1. Buat akun dengan "POST : localhost:5000/api/users" di echo API, lalu isi body:
+Pertama-tama, jalankan "npm run seed", lalu data akan terupload di mongodb compass
+
+1. Jika ingin buat akun baru, jalankan perintah "POST : localhost:5000/api/users" di echo API, lalu isi body:
 {
     "email": "isi",
     "password": "isi (minimal 8 karakter)",
@@ -44,48 +44,12 @@ Sebelumnya, saya menggunakan mongodb compass(bukan atlas), jadi perlu untuk memb
 
 2. Lihat data user dengan "GET : localhost:5000/api/users" di echo API
 
-3. Buat list prize dengan "POST : localhost:5000/api/prizes" dan isi body:
-{
-    "name": "Emas 10 gram",
-    "kuota": 1,
-    "probability": 1
-}
-upload pertama
+3. Akses "GET : localhost:5000/api/prizes" untuk melihat list prize yang dibuat pada step 2
 
-{
-    "name": "Smartphone X",
-    "kuota": 5,
-    "probability": 5
-}
-upload kedua
-
-{
-    "name": "Smartphone Y",
-    "kuota": 10,
-    "probability": 10
-}
-upload ketiga
-
-{
-    "name": "Voucher Rp100.000",
-    "kuota": 100,
-    "probability": 30
-}
-upload keempat
-
-{
-    "name": "Pulsa 50.000",
-    "kuota": 500,
-    "probability": 54
-}
-upload kelima
-
-4. Akses "GET : localhost:5000/api/prizes" untuk melihat list prize yang dibuat pada step 2
-
-5. Jika sudah membuat akun dan list prize(hadiah)nya, user dapat mengakses endpoint "POST : localhost:5000/api/gacha/roll" untuk mulai gacha
+4. Jika sudah membuat akun dan list prize(hadiah)nya, user dapat mengakses endpoint "POST : localhost:5000/api/gacha/roll" untuk mulai gacha
 Isi body dengan 'name' yang sama dengan akun yang dibuat tadi. Isi body:
 {
     "name": "isi dengan full_name yang tadi dibuat"
 }
 
-6. 
+4. 

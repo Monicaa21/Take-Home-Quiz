@@ -4,10 +4,6 @@ async function getAllPrizes() {
   return prizesRepository.findAll();
 }
 
-async function getAvailablePrizes() {
-  return prizesRepository.findAvailable();
-}
-
 async function createPrize(data) {
   if (!data.name || typeof data.kuota !== 'number' || data.kuota <= 0) {
     throw new Error('Name dan kuota harus valid');
@@ -30,7 +26,6 @@ async function getRemainingKuota() {
 
 module.exports = {
   getAllPrizes,
-  getAvailablePrizes,
   createPrize,
   getRemainingKuota,
 };
