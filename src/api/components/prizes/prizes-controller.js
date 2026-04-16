@@ -9,15 +9,6 @@ async function getAllPrizes(request, response, next) {
   }
 }
 
-async function createPrize(request, response, next) {
-  try {
-    const prizes = await prizesService.createPrize(request.body);
-    return response.status(200).json(prizes);
-  } catch (error) {
-    return next(error);
-  }
-}
-
 async function getRemainingKuota(request, response, next) {
   try {
     const prizes = await prizesService.getRemainingKuota();
@@ -29,6 +20,5 @@ async function getRemainingKuota(request, response, next) {
 
 module.exports = {
   getAllPrizes,
-  createPrize,
   getRemainingKuota,
 };

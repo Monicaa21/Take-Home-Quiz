@@ -20,7 +20,6 @@
 
 ## Dari Monica mengenai tugas Take Home Quiz
 Endpoint yang saya buat di tugas ini(diluar endpoint user dari Bapak Janson):
-- POST prizes
 - GET prizes
 - GET prizes/remaining
 
@@ -35,20 +34,33 @@ Pertama-tama, jalankan "npm run seed", lalu data akan terupload di mongodb compa
 
 1. Jika ingin buat akun baru, jalankan perintah "POST : localhost:5000/api/users" di echo API, lalu isi body:
 {
+
     "email": "isi",
+
     "password": "isi (minimal 8 karakter)",
+
     "full_name": "isi",
+
     "confirm_password": "isi sama dengan password"
+
 }
 
-2. Lihat data user dengan "GET : localhost:5000/api/users" di echo API
+2. Lihat data user dengan "GET : localhost:5000/api/users" di echo API.
 
-3. Akses "GET : localhost:5000/api/prizes" untuk melihat list prize yang dibuat pada step 2
+3. Akses "GET : localhost:5000/api/prizes" untuk melihat list prize.
 
-4. Jika sudah membuat akun dan list prize(hadiah)nya, user dapat mengakses endpoint "POST : localhost:5000/api/gacha/roll" untuk mulai gacha
+4. Jalankan endpoint "POST : localhost:5000/api/gacha/roll" untuk mulai gacha.
 Isi body dengan 'name' yang sama dengan akun yang dibuat tadi. Isi body:
 {
     "name": "isi dengan full_name yang tadi dibuat"
 }
 
-4. 
+5. 1 user hanya dapat gacha 5x dalam sehari, jika sudah 5 kali dalam sehari, user tidak dapat menggacha lagi pada hari itu
+
+6. Jalankan endpoint "GET : localhost:5000/api/gacha/history/:name" untuk melihat history gacha berdasarkan nama
+
+7. Untuk melihat list berapa hadiah yang tersisa dengan GET localhost:5000/api/prizes/remaining 
+
+8. Jalankan endpoint GET localhost:5000/api/gacha/winners untuk melihat list user yang berhasil menang mendapatkan hadiah
+
+9. Jika ingin menghapus user berdasarkan id, gunakan DELETE localhost:5000/api/users/:id

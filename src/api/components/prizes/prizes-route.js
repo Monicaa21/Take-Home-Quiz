@@ -10,6 +10,4 @@ module.exports = (app) => {
   route.get('/', prizesController.getAllPrizes);
 
   route.get('/remaining', prizesController.getRemainingKuota);
-
-  route.post('/', prizesController.createPrize);
 };

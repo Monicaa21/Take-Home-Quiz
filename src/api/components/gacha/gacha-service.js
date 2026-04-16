@@ -24,7 +24,7 @@ async function roll(name) {
     throw new Error('Batas gacha harian sudah habis (5x)');
   }
 
-  const prizes = await prizesRepository.findAvailable();
+  const prizes = await prizesRepository.findAll();
 
   let selectedPrize = null;
   let isWin = false;
