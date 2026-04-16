@@ -59,8 +59,8 @@ Isi body dengan 'name' yang sama dengan akun yang dibuat tadi. Isi body:
 
 6. Jalankan endpoint "GET : localhost:5000/api/gacha/history/:name" untuk melihat history gacha berdasarkan nama
 
-7. Untuk melihat list berapa hadiah yang tersisa dengan GET localhost:5000/api/prizes/remaining 
+7. Untuk melihat list berapa hadiah yang tersisa dengan "GET localhost:5000/api/prizes/remaining" 
 
-8. Jalankan endpoint GET localhost:5000/api/gacha/winners untuk melihat list user yang berhasil menang mendapatkan hadiah
+8. Jalankan endpoint "GET localhost:5000/api/gacha/winners" untuk melihat list user yang berhasil menang mendapatkan hadiah
 
-9. Jika ingin menghapus user berdasarkan id, gunakan DELETE localhost:5000/api/users/:id
+9. Jika ingin menghapus user berdasarkan id, gunakan "DELETE localhost:5000/api/users/:id"
