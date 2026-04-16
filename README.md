@@ -20,15 +20,13 @@
 
 ## Dari Monica mengenai tugas Take Home Quiz
 Endpoint yang saya buat di tugas ini(diluar endpoint user dari Bapak Janson):
-POST prizes
+- POST prizes
+- GET prizes
+- GET prizes/remaining
 
-GET prizes
-
-GET prizes/remaining
-
-POST gacha/roll
-GET gacha/history/:name
-GET gacha/winners
+- POST gacha/roll
+- GET gacha/history/:name
+- GET gacha/winners
 
 ## Cara kerja endpoint dapat dilihat sebagai berikut:
 Sebelumnya, saya menggunakan database mongodb compass(bukan atlas), jadi saya membuat src/seeders/seeder.js untuk membuat database bisa langsung connect ke local mongodb dari laptop/komputer manapun.
