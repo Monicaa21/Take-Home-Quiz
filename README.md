@@ -30,7 +30,7 @@ Endpoint yang saya buat di tugas ini(diluar endpoint user dari Bapak Janson):
 ## Cara kerja endpoint dapat dilihat sebagai berikut:
 Sebelumnya, saya menggunakan database mongodb compass(bukan atlas), jadi saya membuat src/seeders/seeder.js untuk membuat database bisa langsung connect ke local mongodb dari laptop/komputer manapun.
 
-Pertama-tama, jalankan "npm run seed", lalu data akan terupload di mongodb compass
+Pertama-tama, jalankan "npm run seed" di terminal, lalu data akan terupload di mongodb compass. Selanjutnya jalankan "npm run dev"
 
 1. Jika ingin buat akun baru, jalankan perintah "POST : localhost:5000/api/users" di echo API, lalu isi body:
 {
